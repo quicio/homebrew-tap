@@ -7,6 +7,13 @@ brew install --cask quicio/tap/catodo   # Cátodo
 brew install --cask quicio/tap/candil   # Candil
 ```
 
+Homebrew 5+ no carga casks de taps de terceros hasta confiarlos. Si aparece
+`Refusing to load cask ... from untrusted tap`, correr una vez:
+
+```bash
+brew trust quicio/tap
+```
+
 ## Cátodo
 
 Shell multimedia con estética CRT: canales de Spotify, YouTube, anime, arcade,
