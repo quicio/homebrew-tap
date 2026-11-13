@@ -3,6 +3,7 @@
 Casks para instalar las apps de [quicio](https://github.com/quicio) en macOS.
 
 ```bash
+brew install --cask quicio/tap/fm1lab   # FM1Lab
 brew install --cask quicio/tap/catodo   # Cátodo
 brew install --cask quicio/tap/candil   # Candil
 ```
@@ -47,3 +48,23 @@ brew uninstall --cask candil --zap
 Ninguna de las dos apps está notarizada por Apple. Los casks intentan quitar la
 cuarentena con `xattr -dr com.apple.quarantine`; si macOS igual bloquea la
 primera apertura, usá clic derecho → Abrir sobre la app en `/Applications`.
+
+## FM1Lab
+
+Laboratorio y panel de performance para el M-VAVE FM-1: detecta el firmware,
+elige un perfil, permite asignar franjas, monitorear MIDI y buscar/instalar
+firmwares con checksum y backup.
+
+- Requiere macOS; builds separados para `arm64` y `x86_64`.
+- Cask estático: `version :latest` + `sha256 :no_check`, apuntando a
+  `releases/latest/download/fm1lab-macos-{arm64,x86_64}-app.tar.gz`.
+- Instala `FM1Lab.app` y enlaza `fm1ctl` como comando de terminal.
+
+```bash
+brew upgrade --cask fm1lab          # actualizar
+brew uninstall --cask fm1lab        # desinstalar (conserva ~/.config/fm1lab/)
+brew uninstall --cask fm1lab --zap  # desinstalar y borrar config/perfiles/backups
+```
+
+Gatekeeper: igual que las otras apps, no está notarizada. El cask intenta quitar
+la cuarentena; si macOS bloquea la primera apertura, usá clic derecho → Abrir.
